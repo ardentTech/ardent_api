@@ -34,9 +34,9 @@ migrate() {
     cd ${DJANGO} && ${PM} migrate ${SETTINGS}
 }
 
-runserver() {
+server() {
     echo
-    echo "########### RUN SERVER ###########"
+    echo "########### SERVER ###########"
     cd ${DJANGO} && ${PM} runserver ${SETTINGS}
 }
 
