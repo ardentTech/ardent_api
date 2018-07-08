@@ -1,0 +1,6 @@
+venv
+*.pyc
+*swp
+static
+media
+env.py
