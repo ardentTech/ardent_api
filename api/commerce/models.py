@@ -25,7 +25,7 @@ class UpdatedMixin(models.Model):
 class Product(CreatedMixin, UpdatedMixin):
 
     # description
-    serial_number = models.CharField(_("name"), max_length=64)
+    serial_number = models.CharField(_("serial number"), max_length=8)
     # etsy url
 
     class Meta:
