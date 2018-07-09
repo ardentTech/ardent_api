@@ -10,7 +10,7 @@ class Product(CreatedMixin, UpdatedMixin):
     serial_number = models.CharField(
         _("serial number"),
         max_length=8)
-    # etsy url
+    # etsy id? etsy_url @property
 
     class Meta:
         ordering = ["serial_number"]
