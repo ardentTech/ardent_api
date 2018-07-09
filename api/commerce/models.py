@@ -7,7 +7,9 @@ from utils.models import CreatedMixin, UpdatedMixin
 class Product(CreatedMixin, UpdatedMixin):
 
     # description
-    serial_number = models.CharField(_("serial number"), max_length=8)
+    serial_number = models.CharField(
+        _("serial number"),
+        max_length=8)
     # etsy url
 
     class Meta:
@@ -15,3 +17,20 @@ class Product(CreatedMixin, UpdatedMixin):
 
     def __str__(self):
         return "Product: {}".format(self.serial_number)
+
+
+class ProductImage(CreatedMixin, UpdatedMixin):
+
+    image = models.ImageField(
+        _("image"),
+        upload_to="commerce/product_image")
+    product = models.ForeignKey(
+        "commerce.Product",
+        on_delete=models.CASCADE,
+        related_name="images")
+
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return "ProductImage: {}".format(self.id)
