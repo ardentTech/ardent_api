@@ -7,16 +7,25 @@ from utils.models import CreatedMixin, UpdatedMixin
 class Product(CreatedMixin, UpdatedMixin):
 
     # description
+    etsy_id = models.IntegerField(
+        _("Etsy ID"),
+        blank=True,
+        null=True)
     serial_number = models.CharField(
         _("serial number"),
         max_length=8)
-    # etsy id? etsy_url @property
 
     class Meta:
         ordering = ["serial_number"]
 
     def __str__(self):
         return "Product: {}".format(self.serial_number)
+
+    @property
+    def etsy_url(self):
+        if self.etsy_id is None:
+            return None
+        return "https://www.etsy.com/listing/{}".format(self.etsy_id)
 
 
 class ProductImage(CreatedMixin, UpdatedMixin):

@@ -2,7 +2,7 @@ import factory
 from factory import Faker
 
 
-class ProductFactory():
+class ProductFactory(factory.DjangoModelFactory):
 
     serial_number = Faker("pystr", max_chars=8)
 
@@ -10,7 +10,7 @@ class ProductFactory():
         model = "commerce.Product"
 
 
-class ProductImageFactory():
+class ProductImageFactory(factory.DjangoModelFactory):
 
     image = factory.django.ImageField(color="blue", height=400, width=400)
     product = factory.SubFactory(ProductFactory)

@@ -7,6 +7,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             "fields": (
+                "etsy_id",
                 "serial_number",
             )
         }),
@@ -18,6 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "serial_number",
+        "etsy_id",
         "created",
         "updated",
     )
