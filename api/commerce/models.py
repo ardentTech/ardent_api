@@ -40,6 +40,7 @@ class ProductImage(CreatedMixin, UpdatedMixin):
 
     class Meta:
         ordering = ["id"]
+        verbose_name_plural = _("Product Images")
 
     def __str__(self):
         return "ProductImage: {}".format(self.id)
