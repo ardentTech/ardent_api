@@ -79,6 +79,9 @@ class ProductImageAdmin(AdminImageMixin, admin.ModelAdmin):
     list_display = (
         "id",
         "image_preview",
+        "width",
+        "height",
+        "filename",
         "product",
         "created",
         "updated",
@@ -86,8 +89,17 @@ class ProductImageAdmin(AdminImageMixin, admin.ModelAdmin):
     list_filter = ()
     readonly_fields = ("created", "id", "updated",)
 
+    def filename(self, obj):
+        return obj.image.name
+
+    def height(self, obj):
+        return obj.image.height
+
     def image_preview(self, obj):
         return self.to_html(obj.image, height=75)
+
+    def width(self, obj):
+        return obj.image.width
 
 
 admin.site.register(Product, ProductAdmin)
