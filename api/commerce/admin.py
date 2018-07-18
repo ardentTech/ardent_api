@@ -44,6 +44,7 @@ class ProductAdmin(admin.ModelAdmin):
             "fields": (
                 "serial_number",
                 "etsy_id",
+                "tags",
             )
         }),
         ("Meta", {
@@ -51,6 +52,7 @@ class ProductAdmin(admin.ModelAdmin):
             "fields": ("created", "id", "updated",)
         })
     )
+    filter_horizontal = ("tags",)
     inlines = (ProductImageInline,)
     list_display = (
         "id",

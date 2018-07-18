@@ -1,10 +1,11 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from taxonomy.models import TaggedMixin
 from utils.models import CreatedMixin, UpdatedMixin
 
 
-class Product(CreatedMixin, UpdatedMixin):
+class Product(CreatedMixin, TaggedMixin, UpdatedMixin):
 
     # description
     etsy_id = models.IntegerField(
