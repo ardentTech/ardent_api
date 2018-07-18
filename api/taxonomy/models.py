@@ -12,7 +12,7 @@ class Tag(CreatedMixin, UpdatedMixin):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        return "Tag: {}".format(self.name)
 
 
 class TaggedMixin(models.Model):
