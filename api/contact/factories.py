@@ -9,4 +9,4 @@ class ContactMessageFactory(factory.DjangoModelFactory):
     name = Faker("pystr", max_chars=128)
 
     class Meta:
-        model = "feedback.ContactMessage"
+        model = "contact.ContactMessage"

@@ -14,6 +14,7 @@ build() {
     makemigrations
     migrate
     test
+    seed
 }
 
 createsuperuser() {
@@ -32,6 +33,12 @@ migrate() {
     echo
     echo "########### MIGRATE ###########"
     cd ${DJANGO} && ${PM} migrate ${SETTINGS}
+}
+
+seed() {
+    echo
+    echo "########### SEED ###########"
+    cd ${DJANGO} && ${PM} seed ${SETTINGS}
 }
 
 server() {
