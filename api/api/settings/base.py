@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     # custom
+    "blog",
     "commerce",
     "contact",
     "taxonomy",
