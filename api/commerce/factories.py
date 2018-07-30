@@ -4,6 +4,7 @@ from factory import Faker
 
 class ProductFactory(factory.DjangoModelFactory):
 
+    name = Faker("pystr", max_chars=128)
     serial_number = Faker("pystr", max_chars=8)
 
     class Meta:

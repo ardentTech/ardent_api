@@ -12,15 +12,19 @@ class Product(CreatedMixin, TaggedMixin, UpdatedMixin):
         _("Etsy ID"),
         blank=True,
         null=True)
+    name = models.CharField(
+        _("name"),
+        default="@todo",
+        max_length=128)
     serial_number = models.CharField(
         _("serial number"),
         max_length=8)
 
     class Meta:
-        ordering = ["-serial_number"]
+        ordering = ["name"]
 
     def __str__(self):
-        return "Product: {}".format(self.serial_number)
+        return "Product: {}".format(self.name)
 
     @property
     def etsy_url(self):
