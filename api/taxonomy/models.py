@@ -17,7 +17,7 @@ class Tag(CreatedMixin, UpdatedMixin):
 
 class TaggedMixin(models.Model):
 
-    tags = models.ManyToManyField("taxonomy.Tag")
+    tags = models.ManyToManyField("taxonomy.Tag", blank=True)
 
     class Meta:
         abstract = True

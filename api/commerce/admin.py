@@ -42,6 +42,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             "fields": (
+                "name",
                 "serial_number",
                 "etsy_id",
                 "tags",
@@ -56,6 +57,7 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = (ProductImageInline,)
     list_display = (
         "id",
+        "name",
         "serial_number",
         "etsy_id",
         "created",
