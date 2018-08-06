@@ -18,14 +18,14 @@ class Query(graphene.ObjectType):
     products = graphene.List(ProductType)
     product_images = graphene.List(ProductImageType)
 
-    def resolve_posts(self, info):
-        return Post.objects.filter(is_public=True)
-
     def resolve_products(self, info):
         return Product.objects.all()
 
     def resolve_product_images(self, info):
         return ProductImage.objects.all()
+
+    def resolve_posts(self, info):
+        return Post.objects.filter(is_public=True)[:5]
 
 
 schema = graphene.Schema(mutation=Mutation, query=Query, types=[TagType])

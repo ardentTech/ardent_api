@@ -21,7 +21,7 @@ class Product(CreatedMixin, TaggedMixin, UpdatedMixin):
         max_length=8)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["-serial_number"]
 
     def __str__(self):
         return "Product: {}".format(self.name)
