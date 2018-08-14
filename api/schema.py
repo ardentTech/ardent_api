@@ -14,6 +14,7 @@ class Mutation(graphene.ObjectType):
 
 class Query(graphene.ObjectType):
 
+    post = graphene.Field(PostType, id=graphene.Int())
     posts = graphene.List(PostType)
     products = graphene.List(ProductType)
     product_images = graphene.List(ProductImageType)
@@ -26,6 +27,9 @@ class Query(graphene.ObjectType):
 
     def resolve_posts(self, info):
         return Post.objects.filter(is_public=True)[:5]
+
+    def resolve_post(self, info, id):
+        return Post.objects.get(pk=id, is_public=True)
 
 
 schema = graphene.Schema(mutation=Mutation, query=Query, types=[TagType])
