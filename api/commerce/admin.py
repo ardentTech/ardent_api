@@ -44,6 +44,7 @@ class ProductAdmin(admin.ModelAdmin):
             "fields": (
                 "name",
                 "serial_number",
+                "status",
                 "etsy_id",
                 "tags",
             )
@@ -59,6 +60,7 @@ class ProductAdmin(admin.ModelAdmin):
         "id",
         "name",
         "serial_number",
+        "status",
         "etsy_id",
         "created",
         "updated",
